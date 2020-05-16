@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<h1>There is a new order #<span th:text="${orderId}"></span></h1>
+<h2>From CNH-Surplus</h2>
+<h3>Customers information:</h3>
+<span th:text="'Customer email: ' + ${email} + ';'"></span><br/>
+<span th:text="'Customer phone: ' + ${phone} + ';'"></span><br/>
+<span th:text="'Customer name: ' + ${name} + ';'"></span><br/>
+<h3>Order information:</h3>
+<span th:text="'Amount: ' + ${qty} + ';'"></span><br/>
+<span th:text="'Customers comment: ' + ${comment} + ';'"></span><br/>
+<span th:text="'Shipping address: ' + ${shippingAddress} + ';'"></span><br/>
+</body>
+</html>

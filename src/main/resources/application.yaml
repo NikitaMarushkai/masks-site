@@ -1,0 +1,28 @@
+server:
+  address: 0.0.0.0
+  port: 8082
+  servlet:
+    application-display-name: CPS Masks
+    context-path: /
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+  mail:
+    host: mail.kn95-online.store
+    username: sales@kn95-online.store
+    password: kHJsrjAK8n
+    protocol: smtp
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    port: 587
