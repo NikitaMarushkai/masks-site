@@ -1,6 +1,14 @@
 (function ($) {
   "use strict";
 
+  //Locale changer
+  $(".locale").on('click', function () {
+    var selectedOption = $(this).attr('id');
+    if (selectedOption){
+      window.location.replace('?lang=' + selectedOption);
+    }
+  });
+
   // Preloader
   $(window).on('load', function () {
     if ($('#preloader').length) {

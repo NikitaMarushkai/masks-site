@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head">
     <meta charset="utf-8">
-    <title>CPS KN95 Masks</title>
+    <title th:text="#{title}"></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
 
@@ -42,17 +42,24 @@
         <div class="container-fluid">
 
             <div id="logo" class="pull-left">
-                <h1><a href="/#intro" class="scrollto">KN95 Masks for you</a></h1>
+                <h1><a href="/#intro" class="scrollto" th:text="#{head.title}"></a></h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="#intro"><img src="/img/logo.png" alt="" title="" /></a>-->
             </div>
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="/#intro">Home</a></li>
-                    <li><a href="/#services">Your benefits while ordering from us</a></li>
-                    <li><a href="/#portfolio">What we offer</a></li>
-                    <li><a href="/#contact">Order now</a></li>
+                    <li class="menu-active"><a href="/#intro" th:text="#{navigation.home}"></a></li>
+                    <li><a href="/#services" th:text="#{navigation.benefits}"></a></li>
+                    <li><a href="/#portfolio" th:text="#{navigation.offer}"></a></li>
+                    <li><a href="/#contact" th:text="#{order.now}"></a></li>
+                    <li class="menu-has-children"><a href="" th:text="#{navigation.language}"></a>
+                        <ul>
+                          <li><a href="#" id="en" class="locale">English</a></li>
+                          <li><a href="#" id="fr" class="locale">Français</a></li>
+                          <li><a href="#" id="nl" class="locale">Flemish</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -74,9 +81,9 @@
                     <div class="carousel-background"><img src="/img/intro-carousel/1.jpg" alt="CNH-PARTS"></div>
                     <div class="carousel-container">
                         <div class="carousel-content">
-                            <h2>KN95 Face masks</h2>
-                            <p>We offer genuine high-quality certified KN95 face masks, which protect you from viruses.</p>
-                            <a href="#contact" class="btn-get-started scrollto">Order now</a>
+                            <h2 th:text="#{main.masks.name}"></h2>
+                            <p th:text="#{main.masks.descr}"></p>
+                            <a href="#contact" class="btn-get-started scrollto" th:text="#{order.now}"></a>
                         </div>
                     </div>
                 </div>
@@ -85,10 +92,10 @@
                     <div class="carousel-background"><img src="/img/intro-carousel/2.jpg" alt="Belgium warehouse"></div>
                     <div class="carousel-container">
                         <div class="carousel-content">
-                            <h2>Protect yourself</h2>
-                            <p>Wearing of a face masks keeps you safe from virus spread and helps protect others.
+                            <h2 th:text="#{main.protect.name}"></h2>
+                            <p th:text="#{main.protect.descr}">
                             </p>
-                            <a href="#contact" class="btn-get-started scrollto">Order now</a>
+                            <a href="#contact" class="btn-get-started scrollto" th:text="#{order.now}"></a>
                         </div>
                     </div>
                 </div>
@@ -98,9 +105,9 @@
                     </div>
                     <div class="carousel-container">
                         <div class="carousel-content">
-                            <h2>Certified quality</h2>
-                            <p>All of the sold items are 100% high-quality certified face masks.</p>
-                            <a href="#contact" class="btn-get-started scrollto">Order now</a>
+                            <h2 th:text="#{main.cert.name}"></h2>
+                            <p th:text="#{main.cert.descr}"></p>
+                            <a href="#contact" class="btn-get-started scrollto" th:text="#{order.now}"></a>
                         </div>
                     </div>
                 </div>
@@ -109,12 +116,12 @@
 
             <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
+                <span class="sr-only" th:text="#{previous}"></span>
             </a>
 
             <a class="carousel-control-next" href="#introCarousel" role="button" data-slide="next">
                 <span class="carousel-control-next-icon ion-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
+                <span class="sr-only" th:text="#{next}"></span>
             </a>
 
         </div>
@@ -132,20 +139,20 @@
 
                 <div class="col-lg-4 box">
                     <i class="ion-bug"></i>
-                    <h4 class="title"><a href="">KN95 Face masks</a></h4>
-                    <p class="description">We offer genuine high-quality certified KN95 face masks, which protect you from viruses.</p>
+                    <h4 class="title"><a href="" th:text="#{main.masks.name}"></a></h4>
+                    <p class="description" th:text="#{main.masks.descr}"></p>
                 </div>
 
                 <div class="col-lg-4 box box-bg">
                     <i class="ion-ios-stopwatch-outline"></i>
-                    <h4 class="title"><a href="">Stop the virus spread</a></h4>
-                    <p class="description">Protect yourself. Wearing of a face masks keeps you safe from virus spread and helps protect others.</p>
+                    <h4 class="title"><a href="" th:text="#{main.antivirus}"></a></h4>
+                    <p class="description" th:text="#{main.protect.name} + ' ' + #{main.protect.descr}"></p>
                 </div>
 
                 <div class="col-lg-4 box">
                     <i class="ion-ios-heart-outline"></i>
-                    <h4 class="title"><a href="">Certified quality</a></h4>
-                    <p class="description">All of the sold items are 100% high-quality certified face masks.</p>
+                    <h4 class="title"><a href="" th:text="#{main.cert.name}"></a></h4>
+                    <p class="description" th:text="#{main.cert.descr}"></p>
                 </div>
 
             </div>
@@ -160,8 +167,8 @@
         <div class="container">
 
             <header class="section-header wow fadeInUp">
-                <h3>Key reasons to order from us</h3>
-                <p>We offer the best for our customers!</p>
+                <h3 th:text="#{reasons.title}"></h3>
+                <p th:text="#{reasins.subtitle}"></p>
             </header>
 
             <div class="row">
@@ -217,15 +224,15 @@
         <div class="container">
 
             <header class="section-header">
-                <h3 class="section-title">What we offer</h3>
+                <h3 class="section-title" th:text="#{navigation.offer}"></h3>
             </header>
 
             <div class="row">
                 <div class="col-lg-12">
                     <ul id="portfolio-flters">
-                        <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-mask">Masks</li>
-                        <li data-filter=".filter-cert">Certificate</li>
+                        <li data-filter="*" class="filter-active" th:text="#{gallery.all}"></li>
+                        <li data-filter=".filter-mask" th:text="#{gallery.masks}">Masks</li>
+                        <li data-filter=".filter-cert" th:text="#{gallery.cert}"></li>
                     </ul>
                 </div>
             </div>
@@ -240,8 +247,8 @@
                         </figure>
 
                         <div class="portfolio-info">
-                            <h4><span>KN95 Face mask</span></h4>
-                            <p>Certified protection mask</p>
+                            <h4><span th:text="#{gallery.mask.name}"></span></h4>
+                            <p th:text="#{gallery.mask.descr}"></p>
                         </div>
                     </div>
                 </div>
@@ -254,8 +261,8 @@
                         </figure>
 
                         <div class="portfolio-info">
-                            <h4><span>Certificate of compliance</span></h4>
-                            <p>All masks are certified</p>
+                            <h4><span th:text="#{gallery.cert.name}"></span></h4>
+                            <p th:text="#{gallery.cert.descr}"></p>
                         </div>
                     </div>
                 </div>
@@ -270,9 +277,9 @@
     ============================-->
     <section id="call-to-action" class="wow fadeIn">
         <div class="container text-center">
-            <h3>Order your mask right away!</h3>
-            <p>Stay safe and buy your KN95 face mask from us, with one of the best pricing.</p>
-            <a class="cta-btn" href="#contact">Order now</a>
+            <h3 th:text="#{ordernow.title}"></h3>
+            <p th:text="#{ordernow.subtitle}"></p>
+            <a class="cta-btn" href="#contact" th:text="#{order.now}"></a>
         </div>
     </section><!-- #call-to-action -->
 
@@ -284,11 +291,8 @@
         <div class="container">
 
             <div class="section-header">
-                <h3>Order now</h3>
-                <p>If you want to order something, you can fill up the form with the desired amount of masks you wish to
-                    order and your shipping address. As soon as you do so, you will receive an email with account requisites for transferring the payment.
-                    As soon as we get your payment, your order will be shipped.
-                </p>
+                <h3 th:text="#{order.now}"></h3>
+                <p th:text="#{orderform.description}"></p>
             </div>
 
             <div class="row contact-info">
@@ -296,7 +300,7 @@
                 <div class="col-md-6">
                     <div class="contact-phone">
                         <i class="ion-ios-telephone-outline"></i>
-                        <h3>Phone Number</h3>
+                        <h3 th:text="#{phone}"></h3>
                         <p><a href="tel:+32 4 257 71 98">+32 4 257 71 98</a></p>
                     </div>
                 </div>
@@ -304,7 +308,7 @@
                 <div class="col-md-6">
                     <div class="contact-email">
                         <i class="ion-ios-email-outline"></i>
-                        <h3>Email</h3>
+                        <h3 th:text="#{email}"></h3>
                         <p><a href="mailto:info@kn95-online.store​">info@kn95-online.store​</a></p>
                     </div>
                 </div>
@@ -313,54 +317,53 @@
 
             <div class="form">
                 <div id="errormessage"></div>
-                <div id="sendmessage">Your order successfully created!</div>
+                <div id="sendmessage" th:text="#{orderform.done}"></div>
                 <!--/*@thymesVar id="orderForm" type="com.cpssurplus.domains.forms.OrderForm"*/-->
                 <form th:action="@{/async/sendMail}" method="post" role="form" th:object="${orderForm}" class="contactForm">
                     <div class="form-group">
                         <input type="text" th:field="*{name}" name="name" class="form-control" id="name"
-                               placeholder="Your Name" data-rule="minlen:2"
-                               data-msg="Please enter at least 2 chars"/>
+                               th:placeholder="#{orderform.name}" data-rule="minlen:2"
+                               th:attr="data-msg=#{orderform.error.name}"/>
                         <div class="validation"></div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <input type="email" th:field="*{email}" class="form-control" name="email" id="email"
-                                   placeholder="Your Email" data-rule="email"
-                                   data-msg="Please enter a valid email"/>
+                                   th:placeholder="#{orderform.email}" data-rule="email"
+                                   th:attr="data-msg=#{orderform.error.email}"/>
                             <div class="validation"></div>
                         </div>
                         <div class="form-group col-md-6">
                             <input type="text" th:field="*{phone}" class="form-control" name="phone" id="phone"
-                                   placeholder="Your phone"/>
+                                   th:placeholder="#{orderform.phone}"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <input type="number" th:field="*{qty}" class="form-control" name="qty" id="qty"
-                               placeholder="Number of items to order" min="10"/>
+                               th:placeholder="#{orderform.qty}" min="10"/>
                     </div>
                     <div class="form-group">
                         <textarea class="form-control" th:field="*{shippingAddress}" name="shippingAddress" rows="3"
-                                  placeholder="Please enter your shipping address"
-                                  data-rule="required" data-msg="Please fill your shipping address"></textarea>
+                                  th:placeholder="#{orderform.address}"
+                                  data-rule="required" th:attr="data-msg=#{orderform.error.address}"></textarea>
                         <div class="validation"></div>
                     </div>
                     <div class="form-group">
                         <textarea class="form-control" th:field="*{comment}" name="message" rows="5"
-                                  placeholder="Comments to your order"></textarea>
+                                  th:placeholder="#{orderform.comments}"></textarea>
                     </div>
-                    <div class="form-group">
-                        To comply with General Data Protection Regulation (GDPR) please tick one of the following options:
+                    <div class="form-group" th:text="#{orderform.gdpr.title}">
                     </div>
                     <div class="form-check">
                         <input type="radio" class="form-check-input" th:field="*{subscribe}" id="agree" name="subscribe" value="true">
-                        <label class="form-check-label" for="agree">Yes, please keep me on your mailing list</label><br/>
+                        <label class="form-check-label" for="agree" th:text="#{orderform.gdpr.yes}"></label><br/>
                     </div>
                     <div class="form-check">
                         <input type="radio" class="form-check-input" th:field="*{subscribe}" id="notAgree" name="subscribe" value="false">
-                        <label class="form-check-label active" for="notAgree">Unsubscribe my details from future mail</label>
+                        <label class="form-check-label active" for="notAgree" th:text="#{orderform.gdpr.no}"></label>
                     </div>
                     <div class="align-center">
-                        <button type="submit" class="btn btn-success">Order</button>
+                        <button type="submit" class="btn btn-success" th:text="#{orderform.order}"></button>
                     </div>
                 </form>
             </div>
@@ -379,29 +382,29 @@
             <div class="row">
 
                 <div class="col-lg-3 col-md-6 footer-info">
-                    <h3>KN95 Masks</h3>
-                    <p>We offer genuine high-quality certified KN95 face masks, which protect you from viruses.</p>
+                    <h3 th:text="#{footer.masks}"></h3>
+                    <p th:text="#{footer.descr}"></p>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Useful Links</h4>
+                    <h4 th:text="#{footer.links}"></h4>
                     <ul>
-                        <li><i class="ion-ios-arrow-right"></i> <a href="/#intro">Home</a></li>
-                        <li><i class="ion-ios-arrow-right"></i> <a href="/#services">Benefits</a></li>
-                        <li><i class="ion-ios-arrow-right"></i> <a href="/#portfolio">What we offer</a></li>
-                        <li><i class="ion-ios-arrow-right"></i> <a href="/#contact">Order now</a></li>
+                        <li><i class="ion-ios-arrow-right"></i> <a href="/#intro" th:text="#{navigation.home}"></a></li>
+                        <li><i class="ion-ios-arrow-right"></i> <a href="/#services" th:text="#{navigation.benefits}"></a></li>
+                        <li><i class="ion-ios-arrow-right"></i> <a href="/#portfolio" th:text="#{navigation.offer}"></a></li>
+                        <li><i class="ion-ios-arrow-right"></i> <a href="/#contact" th:text="#{order.now}"></a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-contact">
-                    <h4>Contact Us</h4>
+                    <h4 th:text="#{footer.contact}"></h4>
                     <p>
                         Rue de la Legende 47 <br/>
                         Zoning Artisanal de Cornemont <br/>
                         B-4141 Louveigne (SPRIMONT) <br/>
                         BELGIUM <br/>
-                        <strong>Phone:</strong> +32 4 257 71 98<br>
-                        <strong>Email:</strong><a href="mailto:info@kn95-online.store "> info@kn95-online.store</a>​<br>
+                        <strong th:text="#{phone} + ':'"></strong> +32 4 257 71 98<br>
+                        <strong th:text="#{email} + ':'"></strong><a href="mailto:info@kn95-online.store "> info@kn95-online.store</a>​<br>
                     </p>
 
                     <div class="social-links">
