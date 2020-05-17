@@ -168,50 +168,35 @@
 
             <header class="section-header wow fadeInUp">
                 <h3 th:text="#{reasons.title}"></h3>
-                <p th:text="#{reasins.subtitle}"></p>
+                <p th:text="#{reasons.subtitle}"></p>
             </header>
 
             <div class="row">
 
-                <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-                    <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
-                    <h4 class="title"><a href="#contact">One of a kind</a></h4>
-                    <p class="description">CNH-PARTS.DISCOUNT is the only web-site being supported and authorized by
-                        CNH Industries Corp to consolidate
-                        surplus stocks of CNH (Case, New Holland) spare parts,
-                        located in South East Asia, Europe & Middle East.
-                    </p>
+                <div class="col-lg-6 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="icon"><i class="ion-ios-body-outline"></i></div>
+                    <h4 class="title"><a href="#contact" th:text="#{reasons.kn95.title}"></a></h4>
+                    <ul class="description" th:utext="#{reasons.kn95.subtitle}">
+                    </ul>
                 </div>
-                <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                <div class="col-lg-6 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
                     <div class="icon"><i class="ion-ios-paper-outline"></i></div>
-                    <h4 class="title"><a href="#contact">A wide range of spare parts</a></h4>
-                    <p class="description">After registration offer free access to widest range of
-                        constantly update inventories of surplus stocks of GENUINE,
-                        unused CNH spare parts applicable to Agriculture and
-                        Construction machinery of CNH brands.
-                    </p>
+                    <h4 class="title"><a href="#contact" th:text="#{reasons.feature.title}"></a></h4>
+                    <ul class="description" th:utext="#{reasons.feature.subtitle}">
+                    </ul>
                 </div>
-                <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                <div class="col-lg-6 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
                     <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
-                    <h4 class="title"><a href="#contact">Great discounts</a></h4>
-                    <p class="description">Discounted price (subjected to inventory owner(s))
-                        range from 25% 30% to even 50%.
+                    <h4 class="title"><a href="#contact" th:text="#{reasons.pricing.title}"></a></h4>
+                    <p class="description" th:text="#{reasons.pricing.subtitle}">
                     </p>
                 </div>
-                <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                <div class="col-lg-6 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
                     <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
-                    <h4 class="title"><a href="#contact">Forwarding cost</a></h4>
-                    <p class="description">Competitive forwarding charges from where stock(s) are
-                        located to customer.</p>
+                    <h4 class="title"><a href="#contact" th:text="#{reasons.amount.title}"></a></h4>
+                    <ul class="description" th:utext="#{reasons.amount.subtitle}">
+                    </ul>
                 </div>
-                <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                    <div class="icon"><i class="ion-ios-people-outline"></i></div>
-                    <h4 class="title"><a href="#contact">Serve all your needs</a></h4>
-                    <p class="description">In the event that required CNH part(s) are not located
-                        as surplus, send us your inquiry to be quoted at best current
-                        CNH price.</p>
-                </div>
-
             </div>
 
         </div>
@@ -297,19 +282,32 @@
 
             <div class="row contact-info">
 
-                <div class="col-md-6">
+                <div class="col-md-4">
+                    <div class="contact-address">
+                        <i class="ion-ios-location-outline"></i>
+                        <h3>Address</h3>
+                        <address>Rue de la Legende 47,
+                            Zoning Artisanal de Cornemont,
+                            B-4141 Louveigne (SPRIMONT),
+                            BELGIUM
+                        </address>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
                     <div class="contact-phone">
                         <i class="ion-ios-telephone-outline"></i>
                         <h3 th:text="#{phone}"></h3>
                         <p><a href="tel:+32 4 257 71 98">+32 4 257 71 98</a></p>
+                        <p><a href="tel:+32 471 61 43 88">+32 471 61 43 88</a></p>
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="contact-email">
                         <i class="ion-ios-email-outline"></i>
                         <h3 th:text="#{email}"></h3>
-                        <p><a href="mailto:info@kn95-online.store​">info@kn95-online.store​</a></p>
+                        <p><a href="mailto:info@kn95-online.store​">sales@kn95-online.store​</a></p>
                     </div>
                 </div>
 
@@ -379,6 +377,14 @@
 <footer id="footer" th:fragment="footer">
     <div class="footer-top">
         <div class="container">
+            <div class="row disclaimer">
+                <div class="col-lg-12">
+                    <h4 th:text="#{footer.disclaimer.title}"></h4>
+                </div>
+                <div class="col-lg-12">
+                    <p th:text="#{footer.disclaimer.body}"></p>
+                </div>
+            </div>
             <div class="row">
 
                 <div class="col-lg-4 col-md-6 footer-info">

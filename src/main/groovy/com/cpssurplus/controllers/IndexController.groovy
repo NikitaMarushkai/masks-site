@@ -13,8 +13,8 @@ class IndexController {
     String index(Model model) {
         model.addAttribute('orderForm', new OrderForm())
         model.addAttribute('masks', ["1.jpg", "2.jpg", "3.jpg",
-        "3 (1).jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg"])
-        model.addAttribute('certificates', [])
+        "3 (1).jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg"])
+        model.addAttribute('certificates', ["1.jpg", "2.jpg"])
         return "index"
     }
 }
