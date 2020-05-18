@@ -9,6 +9,22 @@
     }
   });
 
+  $('#gdpr').click(function() {
+    if ($(this).is(':checked') && $('#disclaimer').is(':checked')) {
+      $('#submitOrder').removeAttr('disabled');
+    } else {
+      $('#submitOrder').attr('disabled', 'disabled');
+    }
+  });
+
+  $('#disclaimer').click(function() {
+    if ($(this).is(':checked') && $('#gdpr').is(':checked')) {
+      $('#submitOrder').removeAttr('disabled');
+    } else {
+      $('#submitOrder').attr('disabled', 'disabled');
+    }
+  });
+
   // Preloader
   $(window).on('load', function () {
     if ($('#preloader').length) {

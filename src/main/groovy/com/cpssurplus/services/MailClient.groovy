@@ -7,6 +7,7 @@ import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.mail.javamail.MimeMessageHelper
 import org.springframework.mail.javamail.MimeMessagePreparator
 import org.springframework.stereotype.Service
+import org.springframework.web.client.HttpClientErrorException
 
 @Service
 class MailClient {
@@ -33,7 +34,7 @@ class MailClient {
         mailSender.send(messagePreparator)
     }
 
-    void sendCustomerOrderNotification(OrderForm orderForm) throws MailException {
+    void sendCustomerOrderNotification(OrderForm orderForm) throws MailException, HttpClientErrorException {
         MimeMessagePreparator messagePreparator = {
             MimeMessageHelper messageHelper = new MimeMessageHelper(it)
             messageHelper.setFrom("sales@kn95-online.store")

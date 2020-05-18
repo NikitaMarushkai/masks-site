@@ -137,7 +137,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-4 box">
+                <div class="col-lg-4 box box-bg">
                     <i class="ion-bug"></i>
                     <h4 class="title"><a href="" th:text="#{main.masks.name}"></a></h4>
                     <p class="description" th:text="#{main.masks.descr}"></p>
@@ -149,7 +149,7 @@
                     <p class="description" th:text="#{main.protect.name} + ' ' + #{main.protect.descr}"></p>
                 </div>
 
-                <div class="col-lg-4 box">
+                <div class="col-lg-4 box box-bg">
                     <i class="ion-ios-heart-outline"></i>
                     <h4 class="title"><a href="" th:text="#{main.cert.name}"></a></h4>
                     <p class="description" th:text="#{main.cert.descr}"></p>
@@ -167,7 +167,7 @@
         <div class="container">
 
             <header class="section-header wow fadeInUp">
-                <h3 th:text="#{reasons.title}"></h3>
+                <h3 th:text="#{navigation.benefits}"></h3>
                 <p th:text="#{reasons.subtitle}"></p>
             </header>
 
@@ -186,15 +186,20 @@
                     </ul>
                 </div>
                 <div class="col-lg-6 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                    <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
-                    <h4 class="title"><a href="#contact" th:text="#{reasons.pricing.title}"></a></h4>
-                    <p class="description" th:text="#{reasons.pricing.subtitle}">
-                    </p>
+                    <div class="icon"><i class="ion-ios-list-outline"></i></div>
+                    <h4 class="title"><a href="#contact" th:utext="#{reasons.instruction.title}"></a></h4>
+                    <ul class="description" th:utext="#{reasons.instruction.subtitle1}">
+                    </ul>
+                    <ul class="description instruction">
+                        <img src="/img/masks/instruction.jpg" alt="instruction"/>
+                    </ul>
+                    <ul class="description" th:utext="#{reasons.instruction.subtitle2}">
+                    </ul>
                 </div>
                 <div class="col-lg-6 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                    <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
-                    <h4 class="title"><a href="#contact" th:text="#{reasons.amount.title}"></a></h4>
-                    <ul class="description" th:utext="#{reasons.amount.subtitle}">
+                    <div class="icon"><i class="ion-alert-circled"></i></div>
+                    <h4 class="title"><a href="#contact" th:text="#{reasons.warning.title}"></a></h4>
+                    <ul class="description" th:utext="#{reasons.warning.subtitle}">
                     </ul>
                 </div>
             </div>
@@ -264,6 +269,28 @@
         <div class="container text-center">
             <h3 th:text="#{ordernow.title}"></h3>
             <p th:text="#{ordernow.subtitle}"></p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">5 <span th:text="#{price.masks}"></span></th>
+                        <th scope="col">10 <span th:text="#{price.masks}"></span></th>
+                        <th scope="col">25 <span th:text="#{price.masks}"></span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            $$$ <span th:text="#{price.permask}"></span>
+                        </td>
+                        <td>
+                            $$$ <span th:text="#{price.permask}"></span>
+                        </td>
+                        <td>
+                            $$$ <span th:text="#{price.permask}"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             <a class="cta-btn" href="#contact" th:text="#{order.now}"></a>
         </div>
     </section><!-- #call-to-action -->
@@ -298,7 +325,7 @@
                     <div class="contact-phone">
                         <i class="ion-ios-telephone-outline"></i>
                         <h3 th:text="#{phone}"></h3>
-                        <p><a href="tel:+32 4 257 71 98">+32 4 257 71 98</a></p>
+                        <p><a href="tel:+32 4 257 71 98">+32 4 257 71 95</a></p>
                         <p><a href="tel:+32 471 61 43 88">+32 471 61 43 88</a></p>
                     </div>
                 </div>
@@ -318,11 +345,25 @@
                 <div id="sendmessage" th:text="#{orderform.done}"></div>
                 <!--/*@thymesVar id="orderForm" type="com.cpssurplus.domains.forms.OrderForm"*/-->
                 <form th:action="@{/async/sendMail}" method="post" role="form" th:object="${orderForm}" class="contactForm">
-                    <div class="form-group">
-                        <input type="text" th:field="*{name}" name="name" class="form-control" id="name"
-                               th:placeholder="#{orderform.name}" data-rule="minlen:2"
-                               th:attr="data-msg=#{orderform.error.name}"/>
-                        <div class="validation"></div>
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <select required class="form-control" th:field="*{title}" name="title" id="title">
+                                <option th:value="#{mr}" th:text="#{mr}"></option>
+                                <option th:value="#{mrs}" th:text="#{mrs}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <input type="text" th:field="*{firstName}" name="firstName" class="form-control" id="name"
+                                   th:placeholder="#{orderform.name}" data-rule="minlen:2"
+                                   th:attr="data-msg=#{orderform.error.name}"/>
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <input type="text" th:field="*{surname}" name="surname" class="form-control" id="surname"
+                                   th:placeholder="#{orderform.surname}" data-rule="minlen:2"
+                                   th:attr="data-msg=#{orderform.error.name}"/>
+                            <div class="validation"></div>
+                        </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -338,30 +379,56 @@
                     </div>
                     <div class="form-group">
                         <input type="number" th:field="*{qty}" class="form-control" name="qty" id="qty"
-                               th:placeholder="#{orderform.qty}" min="10"/>
+                               th:placeholder="#{orderform.qty}" min="5"/>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" th:field="*{houseNr}" class="form-control" name="houseNr" id="houseNr"
+                                   th:placeholder="#{orderform.houseNr}" data-rule="required" th:attr="data-msg=#{orderform.error.houseNr}"/>
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" th:field="*{street}" class="form-control" name="street" id="street"
+                                   th:placeholder="#{orderform.street}" data-rule="required" th:attr="data-msg=#{orderform.error.street}"/>
+                            <div class="validation"></div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" th:field="*{shippingAddress}" name="shippingAddress" rows="3"
-                                  th:placeholder="#{orderform.address}"
-                                  data-rule="required" th:attr="data-msg=#{orderform.error.address}"></textarea>
+                        <input type="text" class="form-control" th:field="*{town}" name="town"
+                               th:placeholder="#{orderform.town}"
+                               data-rule="required" th:attr="data-msg=#{orderform.error.town}"/>
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" th:field="*{country}" name="country"
+                               th:placeholder="#{orderform.country}"
+                               data-rule="required" th:attr="data-msg=#{orderform.error.country}"/>
                         <div class="validation"></div>
                     </div>
                     <div class="form-group">
                         <textarea class="form-control" th:field="*{comment}" name="message" rows="5"
                                   th:placeholder="#{orderform.comments}"></textarea>
                     </div>
-                    <div class="form-group" th:text="#{orderform.gdpr.title}">
+                    <div class="form-group">
+                        <div class="row disclaimer">
+                            <div class="col-lg-12">
+                                <h4 class="disclaimer-title" th:utext="#{footer.disclaimer.title}"></h4>
+                            </div>
+                            <div class="col-lg-12">
+                                <p class="disclaimer-body" th:utext="#{footer.disclaimer.body}"></p>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" th:field="*{subscribe}" id="agree" name="subscribe" value="true">
-                        <label class="form-check-label" for="agree" th:text="#{orderform.gdpr.yes}"></label><br/>
+                        <input type="checkbox" class="form-check-input" id="gdpr" name="subscribe">
+                        <label class="form-check-label" for="gdpr" th:text="#{orderform.gdpr.title}"></label><br/>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" th:field="*{subscribe}" id="notAgree" name="subscribe" value="false">
-                        <label class="form-check-label active" for="notAgree" th:text="#{orderform.gdpr.no}"></label>
+                        <input type="checkbox" class="form-check-input" id="disclaimer" name="subscribe" value="true">
+                        <label class="form-check-label" for="disclaimer" th:text="#{orderform.disclaimer.tick}"></label>
                     </div>
                     <div class="align-center">
-                        <button type="submit" class="btn btn-success" th:text="#{orderform.order}"></button>
+                        <button type="submit" class="btn btn-success" id="submitOrder" disabled="disabled" th:text="#{orderform.order}"></button>
                     </div>
                 </form>
             </div>
@@ -377,19 +444,11 @@
 <footer id="footer" th:fragment="footer">
     <div class="footer-top">
         <div class="container">
-            <div class="row disclaimer">
-                <div class="col-lg-12">
-                    <h4 th:text="#{footer.disclaimer.title}"></h4>
-                </div>
-                <div class="col-lg-12">
-                    <p th:text="#{footer.disclaimer.body}"></p>
-                </div>
-            </div>
             <div class="row">
 
                 <div class="col-lg-4 col-md-6 footer-info">
-                    <h3 th:text="#{footer.masks}"></h3>
-                    <p th:text="#{footer.descr}"></p>
+                    <h3 th:text="#{head.title}"></h3>
+                    <p th:text="#{head.subtitle}"></p>
                 </div>
 
                 <div class="col-lg-4 col-md-6 footer-links">
@@ -409,7 +468,7 @@
                         Zoning Artisanal de Cornemont <br/>
                         B-4141 Louveigne (SPRIMONT) <br/>
                         BELGIUM <br/>
-                        <strong th:text="#{phone} + ':'"></strong> +32 4 257 71 98<br>
+                        <strong th:text="#{phone} + ':'"></strong> Office: +32 4 257 71 95; Mobile: +32 471 61 43 88<br>
                         <strong th:text="#{email} + ':'"></strong><a href="mailto:info@kn95-online.store "> info@kn95-online.store</a>​<br>
                     </p>
 
@@ -425,8 +484,7 @@
     </div>
 
     <div class="container">
-        <div class="copyright">
-            &copy; Copyright <strong>CPS-Belgium</strong>. All Rights Reserved
+        <div class="copyright" th:text="#{copyright}">
         </div>
     </div>
 </footer><!-- #footer -->

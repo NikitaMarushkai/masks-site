@@ -648,7 +648,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------*/
 
 #featured-services {
-  background: #000;
+  background-image: linear-gradient(0deg, #335b7f 0%, #3d93bf 50%, #335b7f 100%);
 }
 
 #featured-services .box {
@@ -656,7 +656,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #featured-services .box-bg {
-  background-image: linear-gradient(0deg, #000000 0%, #242323 50%, #000000 100%);
+  background-image: linear-gradient(0deg, #335b7f 0%, #3d93bf 50%, #335b7f 100%);
 }
 
 #featured-services i {
@@ -828,11 +828,20 @@ img.img-fluid {
 
 #services .description {
   font-size: 14px;
-  margin-left: 60px;
+  margin-left: 20px;
   line-height: 24px;
   margin-bottom: 0;
 }
 
+#services .description img {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 20px;
+}
+
+#services .instruction {
+  text-align: center;
+}
 /* Call To Action Section
 --------------------------------*/
 
@@ -870,6 +879,10 @@ img.img-fluid {
 #call-to-action .cta-btn:hover {
   background: #549fff;
   border: 2px solid #549fff;
+}
+
+#call-to-action table {
+  color: white;
 }
 
 /* Call To Action Section
@@ -1401,6 +1414,9 @@ img.img-fluid {
   background: #13a456;
 }
 
+#contact .disclaimer-body {
+  font-size: small;
+}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/

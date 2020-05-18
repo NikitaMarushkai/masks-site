@@ -88,12 +88,13 @@ a[x-apple-data-detectors] {
                      <tr style="border-collapse:collapse;"> 
                       <td align="center" style="padding:0;Margin:0;padding-top:15px;padding-bottom:15px;"> 
                        <div> 
-                        <h2 style="Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:Arial, sans-serif;font-size:24px;font-style:normal;font-weight:normal;color:#242424;"><span style="font-size:30px;"><strong>Your order is reserved and waiting for the payment. </strong></span><br></h2>
+                           <h2 style="Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:Arial, sans-serif;font-size:24px;font-style:normal;font-weight:normal;color:#242424;"><span style="font-size:30px;"><strong th:text="#{mail.title(${order}, ${#dates.format(#dates.createNow(), 'dd MMM yyyy')})}"></strong></span><br></h2>
                        </div></td> 
                      </tr> 
                      <tr style="border-collapse:collapse;"> 
-                      <td align="center" style="padding:0;Margin:0;padding-left:10px;"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:Arial, sans-serif;line-height:21px;color:#242424;" th:text="'Hello, ' + ${name} + ', we have received order #' + ${order} + ' and are working on it now.'">
-                      </p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:Arial, sans-serif;line-height:21px;color:#242424;">We'll get in touch with you when we've shipped it.</p></td>
+                      <td align="center" style="padding:0;Margin:0;padding-left:10px;">
+                          <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:Arial, sans-serif;line-height:21px;color:#242424;" th:text="#{mail.subtitle(${name})}"></p>
+                      </td>
                      </tr> 
                    </table></td> 
                  </tr> 
@@ -106,7 +107,7 @@ a[x-apple-data-detectors] {
                   <td width="580" valign="top" align="center" style="padding:0;Margin:0;"> 
                    <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;"> 
                      <tr style="border-collapse:collapse;"> 
-                      <td align="center" style="padding:0;Margin:0;"><h2 style="Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:Arial, sans-serif;font-size:24px;font-style:normal;font-weight:normal;color:#191919;">Items ordered</h2></td> 
+                      <td align="center" style="padding:0;Margin:0;"><h2 style="Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:Arial, sans-serif;font-size:24px;font-style:normal;font-weight:normal;color:#191919;" th:text="#{mail.ordered(${qty})}"></h2></td>
                      </tr> 
                    </table></td> 
                  </tr> 
@@ -119,13 +120,19 @@ a[x-apple-data-detectors] {
                   <td width="560" align="center" valign="top" style="padding:0;Margin:0;"> 
                    <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;"> 
                      <tr style="border-collapse:collapse;"> 
-                      <td align="center" style="padding:0;Margin:0;"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:Arial, sans-serif;line-height:21px;color:#333333;"><span style="text-align:center;"><span style="font-size:16px;"><b th:text="'Order #' + ${order}"></b></span></span></p></td>
+                      <td align="center" style="padding:0;Margin:0;"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:Arial, sans-serif;line-height:21px;color:#333333;"><span style="text-align:center;"><span style="font-size:16px;"><b th:text="#{mail.delivery(${shippingAddress})}"></b></span></span></p></td>
                      </tr> 
                      <tr style="border-collapse:collapse;"> 
                          <td align="center" style="padding:0;Margin:0;padding-top:20px;">
-                             <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:Arial, sans-serif;line-height:23px;color:#333333;"><strong style="line-height:150%;">KN95 face mask</strong></p>
-                             <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:Arial, sans-serif;line-height:23px;color:#333333;"><strong>Qty: </strong><span th:text="${qty}"></span></p>
-                             <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:Arial, sans-serif;line-height:23px;color:#333333;"><strong>Your shipping address: </strong><span th:text="${shippingAddress}"></span></p>
+                             <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:Arial, sans-serif;line-height:23px;color:#333333;"><strong style="line-height:150%;" th:text="#{mail.amount(${amount})}"></strong></p>
+                             <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:Arial, sans-serif;line-height:23px;color:#333333;"><strong th:text="#{mail.belgium}"></strong></p>
+                             <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:Arial, sans-serif;line-height:23px;color:#333333;">Account # 310-189023-88 at ING Bank</p>
+                             <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:Arial, sans-serif;line-height:23px;color:#333333;">63 Ave. Leron Jourez, Brain L'Alleid, 1420 Belgium</p>
+                             <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:Arial, sans-serif;line-height:23px;color:#333333;"><strong th:text="#{mail.france}"></strong></p>
+                             <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:Arial, sans-serif;line-height:23px;color:#333333;">IBAN: BE56 3101 8908 2388</p>
+                             <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:Arial, sans-serif;line-height:23px;color:#333333;">BIC: BBRUBEBB</p>
+                             <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:Arial, sans-serif;line-height:23px;color:#333333;">ING Bank, 24 Ave. Marnix, Brussels 1000, Belgium</p>
+                             <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:Arial, sans-serif;line-height:23px;color:#333333;"><strong th:text="#{mail.ack}"></strong></p>
                          </td>
                      </tr> 
                    </table></td> 
@@ -146,7 +153,7 @@ a[x-apple-data-detectors] {
                   <td width="560" valign="top" align="center" style="padding:0;Margin:0;"> 
                    <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;"> 
                      <tr style="border-collapse:collapse;">
-                         <td align="center" style="padding:0;Margin:0;padding-top:20px;padding-bottom:20px;"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:13px;font-family:Arial, sans-serif;line-height:16px;color:#888888;">CPS Belgium.</p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:13px;font-family:Arial, sans-serif;line-height:16px;color:#888888;">Rue de la Legende 47</p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:13px;font-family:Arial, sans-serif;line-height:16px;color:#888888;">Zoning Artisanal de Cornemont</p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:13px;font-family:Arial, sans-serif;line-height:16px;color:#888888;">B-4141 Louveigne (SPRIMONT)</p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:13px;font-family:Arial, sans-serif;line-height:16px;color:#888888;">BELGIUM</p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:13px;font-family:Arial, sans-serif;line-height:16px;color:#888888;">Phone: +32 4 257 71 98<br></p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:13px;font-family:Arial, sans-serif;line-height:16px;color:#888888;">Email: sales@kn95-online.store</p></td>
+                         <td align="center" style="padding:0;Margin:0;padding-top:20px;padding-bottom:20px;"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:13px;font-family:Arial, sans-serif;line-height:16px;color:#888888;">CPS Belgium.</p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:13px;font-family:Arial, sans-serif;line-height:16px;color:#888888;">Rue de la Legende 47</p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:13px;font-family:Arial, sans-serif;line-height:16px;color:#888888;">Zoning Artisanal de Cornemont</p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:13px;font-family:Arial, sans-serif;line-height:16px;color:#888888;">B-4141 Louveigne (SPRIMONT)</p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:13px;font-family:Arial, sans-serif;line-height:16px;color:#888888;">BELGIUM</p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:13px;font-family:Arial, sans-serif;line-height:16px;color:#888888;">Phone: +32 4 257 71 95; +32 471 61 43 88<br></p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:13px;font-family:Arial, sans-serif;line-height:16px;color:#888888;">Email: sales@kn95-online.store</p></td>
                      </tr> 
                    </table></td> 
                  </tr> 
