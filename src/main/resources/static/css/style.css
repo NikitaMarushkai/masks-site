@@ -185,8 +185,15 @@ h6 {
 #header.header-scrolled {
   background: rgba(0, 0, 0, 0.9);
   padding: 20px 0;
-  height: 72px;
+  height: 92px;
   transition: all 0.5s;
+}
+
+#header .subtitle {
+  color: white;
+  font-size: 20px;
+  padding-left: 10px;
+  border-left: 4px solid #549fff;
 }
 
 #header #logo {
@@ -1416,6 +1423,11 @@ img.img-fluid {
 
 #contact .disclaimer-body {
   font-size: small;
+}
+
+#contact .wholesale {
+  font-weight: bold;
+  font-size: 20px;
 }
 /*--------------------------------------------------------------
 # Footer

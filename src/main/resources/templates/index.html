@@ -43,6 +43,7 @@
 
             <div id="logo" class="pull-left">
                 <h1><a href="/#intro" class="scrollto" th:text="#{head.title}"></a></h1>
+                <h2 class="subtitle" th:text="#{head.subtitle}"></h2>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="#intro"><img src="/img/logo.png" alt="" title="" /></a>-->
             </div>
@@ -303,7 +304,7 @@
         <div class="container">
 
             <div class="section-header">
-                <h3 th:text="#{order.now}"></h3>
+                <h3 th:text="#{order.place}"></h3>
                 <p th:text="#{orderform.description}"></p>
             </div>
 
@@ -336,6 +337,10 @@
                         <h3 th:text="#{email}"></h3>
                         <p><a href="mailto:info@kn95-online.store​">sales@kn95-online.store​</a></p>
                     </div>
+                </div>
+
+                <div class="col-md-12">
+                    <p class="wholesale" th:text="#{orderform.wholesale}"></p>
                 </div>
 
             </div>
