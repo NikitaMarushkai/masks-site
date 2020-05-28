@@ -88,7 +88,7 @@ a[x-apple-data-detectors] {
                      <tr style="border-collapse:collapse;"> 
                       <td align="center" style="padding:0;Margin:0;padding-top:15px;padding-bottom:15px;"> 
                        <div> 
-                           <h2 style="Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:Arial, sans-serif;font-size:24px;font-style:normal;font-weight:normal;color:#242424;"><span style="font-size:30px;"><strong th:text="#{mail.title(${order}, ${#dates.format(#dates.createNow(), 'dd MMM yyyy')})}"></strong></span><br></h2>
+                           <h2 style="Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:Arial, sans-serif;font-size:24px;font-style:normal;font-weight:normal;color:#242424;"><span style="font-size:30px;"><strong th:text="#{mail.title(${#strings.toString(order)}, ${#dates.format(#dates.createNow(), 'dd MMM yyyy')})}"></strong></span><br></h2>
                        </div></td> 
                      </tr> 
                      <tr style="border-collapse:collapse;"> 

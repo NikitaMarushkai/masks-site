@@ -1,5 +1,7 @@
 package com.cpssurplus.domains.forms
 
+import com.cpssurplus.domains.enums.Countries
+
 class OrderForm {
     Integer orderId
     String title
@@ -11,11 +13,11 @@ class OrderForm {
     String houseNr
     String street
     String town
-    String country
+    Countries country
     String comment
 
     String getShippingAddress() {
-        String.format("%s, %s, %s, %s", street, houseNr, town, country)
+        String.format("%s, %s, %s, %s", street, houseNr, town, country.toString())
     }
 
     String getName() {

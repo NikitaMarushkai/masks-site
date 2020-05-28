@@ -273,21 +273,21 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">5 <span th:text="#{price.masks}"></span></th>
-                        <th scope="col">10 <span th:text="#{price.masks}"></span></th>
-                        <th scope="col">25 <span th:text="#{price.masks}"></span></th>
+                        <th scope="col">3 <span th:text="#{price.masks}"></span></th>
+                        <th scope="col">15 <span th:text="#{price.masks}"></span></th>
+                        <th scope="col">30 <span th:text="#{price.masks}"></span></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>
-                            $$$ <span th:text="#{price.permask}"></span>
+                            <span th:text="#{price.permask('€3.87', '€2.39', '€14.00')}"></span>
                         </td>
                         <td>
-                            $$$ <span th:text="#{price.permask}"></span>
+                            <span th:text="#{price.permask('€3.67', '€3.39', '€58.44')}"></span>
                         </td>
                         <td>
-                            $$$ <span th:text="#{price.permask}"></span>
+                            <span th:text="#{price.permask('€3.57', '€6.49', '€113.59')}"></span>
                         </td>
                     </tr>
                 </tbody>
@@ -313,7 +313,7 @@
                 <div class="col-md-4">
                     <div class="contact-address">
                         <i class="ion-ios-location-outline"></i>
-                        <h3>Address</h3>
+                        <h3 th:text="#{address}"></h3>
                         <address>Rue de la Legende 47,
                             Zoning Artisanal de Cornemont,
                             B-4141 Louveigne (SPRIMONT),
@@ -383,8 +383,11 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="number" th:field="*{qty}" class="form-control" name="qty" id="qty"
-                               th:placeholder="#{orderform.qty}" min="5"/>
+                        <select name="qty" id="qty" class="form-control" th:field="*{qty}"
+                                th:placeholder="#{orderform.qty}">
+                            <option th:each="qty : ${#numbers.sequence(3, 90, 3)}"
+                                    th:value="${qty}" th:text="${qty}"></option>
+                        </select>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -405,10 +408,11 @@
                         <div class="validation"></div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" th:field="*{country}" name="country"
-                               th:placeholder="#{orderform.country}"
-                               data-rule="required" th:attr="data-msg=#{orderform.error.country}"/>
-                        <div class="validation"></div>
+                        <select name="country" id="country" class="form-control" th:field="*{country}"
+                                th:placeholder="#{orderform.country}">
+                            <option th:each="country : ${T(com.cpssurplus.domains.enums.Countries).values()}"
+                                    th:value="${country}" th:text="${country}"></option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <textarea class="form-control" th:field="*{comment}" name="message" rows="5"
