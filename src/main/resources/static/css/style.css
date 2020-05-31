@@ -191,7 +191,7 @@ h6 {
 
 #header .subtitle {
   color: white;
-  font-size: 20px;
+  font-size: 12px;
   padding-left: 10px;
   border-left: 4px solid #549fff;
 }
@@ -215,6 +215,7 @@ h6 {
   color: #fff;
   padding-left: 10px;
   border-left: 4px solid #549fff;
+  font-size: 20px;
 }
 
 #header #logo img {
@@ -438,7 +439,7 @@ h6 {
   color: #fff;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 12px;
   text-transform: uppercase;
   outline: none;
 }
