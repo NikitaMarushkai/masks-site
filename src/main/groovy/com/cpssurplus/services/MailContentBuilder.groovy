@@ -57,19 +57,19 @@ class MailContentBuilder {
         switch (qty) {
             case 3:
                 double amount = qty * maskPriceLess15 + priceShippingSmallest
-                return new Tuple2<>(amount, (amount * 0.06).round(2))
+                return new Tuple2<>((amount + (amount * 0.06)).round(2), (amount * 0.06).round(2))
                 break
             case { it > 3 && it < 15 }:
                 double amount = qty * maskPriceLess15 + priceShippingLess15
-                return new Tuple2<>(amount, (amount * 0.06).round(2))
+                return new Tuple2<>((amount + (amount * 0.06)).round(2), (amount * 0.06).round(2))
                 break
             case { it >=15 && it < 30 }:
                 double amount = qty * maskPriceLess30 + priceShippingLess15 + (priceShippingEach15 / 15 * qty)
-                return new Tuple2<>(amount, (amount * 0.06).round(2))
+                return new Tuple2<>((amount + (amount * 0.06)).round(2), (amount * 0.06).round(2))
                 break
             case { it >= 30  }:
                 double amount = qty * maskPriceLowest + priceShippingLess15 + priceShippingEach15 + (priceShippingEach15 / 15 * qty)
-                return new Tuple2<>(amount, (amount * 0.06).round(2))
+                return new Tuple2<>((amount + (amount * 0.06)).round(2), (amount * 0.06).round(2))
                 break
             default:
                 throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "QTY too small")
